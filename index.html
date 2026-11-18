@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zyntha — Páginas web y menús digitales para negocios | Villavicencio</title>
+<meta name="description" content="Diseñamos páginas web de una vista, menús digitales con QR, catálogos y plantillas de control para negocios. Entrega en 24 a 48 horas. Villavicencio, Meta.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230F3D3E'/><text x='50' y='72' font-size='64' font-family='Arial' font-weight='bold' fill='%23F5F1E8' text-anchor='middle'>Z</text></svg>">
+<style>
+  :root{
+    --teal:#0F3D3E; --teal-dark:#0A2A2B; --cream:#F5F1E8; --lime:#C8F04A;
+    --ink:#12211F; --muted:#5B6B69; --line:rgba(15,61,62,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(245,241,232,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em}
+  .mark{
+    width:34px;height:34px;border-radius:9px;background:var(--teal);color:var(--cream);
+    display:grid;place-items:center;font-size:18px;font-weight:900;font-style:italic;
+  }
+  .btn{
+    display:inline-block;padding:11px 18px;border-radius:999px;font-weight:700;font-size:14px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--teal);color:var(--cream);box-shadow:0 6px 18px rgba(15,61,62,.22)}
+  .btn-lime{background:var(--lime);color:var(--teal-dark);box-shadow:0 6px 18px rgba(200,240,74,.35)}
+  .btn-ghost{border:1.5px solid rgba(245,241,232,.45);color:var(--cream);padding:10px 17px}
+  .btn-outline{border:1.5px solid var(--teal);color:var(--teal)}
+
+  /* HERO */
+  .hero{background:linear-gradient(160deg,var(--teal) 0%,var(--teal-dark) 100%);color:var(--cream);padding:76px 0 84px;position:relative;overflow:hidden}
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,240,74,.18),transparent 68%);
+  }
+  .eyebrow{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--lime);border:1px solid rgba(200,240,74,.4);padding:6px 12px;border-radius:999px;margin-bottom:22px;
+  }
+  h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;font-weight:800;max-width:16ch}
+  h1 em{font-style:normal;color:var(--lime)}
+  .lead{font-size:clamp(1rem,2vw,1.15rem);color:rgba(245,241,232,.82);max-width:52ch;margin-top:20px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:38px;font-size:13px;color:rgba(245,241,232,.65)}
+  .trust span::before{content:"✓ ";color:var(--lime);font-weight:900}
+
+  /* SECCIONES */
+  section{padding:68px 0}
+  .section-head{max-width:60ch;margin-bottom:38px}
+  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.02em;font-weight:800}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+
+  /* SERVICIOS */
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;
+    display:flex;flex-direction:column;gap:10px;transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,61,62,.10)}
+  .card h3{font-size:1rem;font-weight:750;letter-spacing:-.01em}
+  .card p{font-size:14px;color:var(--muted);flex:1}
+  .price{font-size:1.35rem;font-weight:800;color:var(--teal);letter-spacing:-.02em}
+  .price small{font-size:11px;font-weight:600;color:var(--muted);display:block;letter-spacing:0}
+
+  /* PORTAFOLIO */
+  .works{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .work{
+    border-radius:18px;overflow:hidden;background:var(--teal);color:var(--cream);
+    padding:30px 26px;display:flex;flex-direction:column;gap:12px;min-height:230px;
+    position:relative;transition:transform .18s ease;
+  }
+  .work:hover{transform:translateY(-3px)}
+  .work .tag{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
+  .work h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+  .work p{font-size:14px;color:rgba(245,241,232,.78);flex:1}
+  .work .go{font-size:13px;font-weight:800;color:var(--lime)}
+
+  /* PROCESO */
+  .steps{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));counter-reset:s}
+  .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+  .step::before{
+    counter-increment:s;content:counter(s);display:grid;place-items:center;
+    width:34px;height:34px;border-radius:10px;background:var(--lime);color:var(--teal-dark);
+    font-weight:900;margin-bottom:14px;
+  }
+  .step h3{font-size:.98rem;font-weight:750;margin-bottom:6px}
+  .step p{font-size:13.5px;color:var(--muted)}
+
+  /* CTA */
+  .cta{background:var(--teal);color:var(--cream);border-radius:22px;padding:52px 32px;text-align:center;margin:0 22px}
+  .cta h2{max-width:24ch;margin:0 auto 14px}
+  .cta p{color:rgba(245,241,232,.8);max-width:46ch;margin:0 auto 28px;font-size:15px}
+
+  footer{padding:34px 0 46px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .foot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><div class="mark">Z</div> Zyntha</div>
+    <a class="btn btn-primary" href="https://wa.me/573214092949?text=Hola%20Zyntha%2C%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20negocio">Escribir por WhatsApp</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Estudio digital · Villavicencio</span>
+    <h1>Tu negocio con página web y menú digital en <em>48 horas</em></h1>
+    <p class="lead">Diseñamos páginas de una vista, menús con código QR, catálogos y plantillas de control. Sin enredos técnicos, sin mensualidades y con el botón de WhatsApp incluido.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lime" href="https://wa.me/573214092949?text=Hola%20Zyntha%2C%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20negocio">Quiero mi muestra gratis</a>
+      <a class="btn btn-ghost" href="#servicios">Ver precios</a>
+    </div>
+    <div class="trust">
+      <span>Entrega en 24–48 h</span>
+      <span>Hosting gratis incluido</span>
+      <span>50% de anticipo</span>
+    </div>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Servicios</div>
+      <h2>Precios claros, sin sorpresas</h2>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Auditoría digital</h3>
+        <p>Informe de 3 páginas con lo que le falta a tu negocio en Google, redes y ventas.</p>
+        <div class="price">$50.000 <small>Entrega 24 h</small></div>
+      </div>
+
+      <div class="card">
+        <h3>Menú digital con QR</h3>
+        <p>Tu menú con fotos, precios y botón de pedido por WhatsApp. Listo para escanear.</p>
+        <div class="price">$120.000 <small>Entrega 48 h</small></div>
+      </div>
+
+      <div class="card">
+        <h3>Catálogo digital</h3>
+        <p>Tus productos con fotos y precios en un solo archivo, listo para enviar por WhatsApp.</p>
+        <div class="price">$150.000 <small>Entrega 48 h</small></div>
+      </div>
+
+      <div class="card">
+        <h3>Página web de una vista</h3>
+        <p>Web con botón de WhatsApp, mapa y catálogo. Hosting y HTTPS gratis incluidos.</p>
+        <div class="price">$220.000 <small>Entrega 3 días</small></div>
+      </div>
+
+      <div class="card">
+        <h3>Plantilla de control en Sheets</h3>
+        <p>Fiados, inventario y gastos con fórmulas automáticas y alertas de saldo.</p>
+        <div class="price">$90.000 <small>Entrega 24 h</small></div>
+      </div>
+
+      <div class="card">
+        <h3>Plan de 30 publicaciones</h3>
+        <p>Textos e imágenes para un mes completo de redes sociales, listos para publicar.</p>
+        <div class="price">$250.000 <small>Entrega 3 días</small></div>
+      </div>
+
+      <div class="card">
+        <h3>CV + LinkedIn</h3>
+        <p>Hoja de vida profesional y perfil optimizado para que te encuentren las empresas.</p>
+        <div class="price">$50.000 <small>Entrega 24 h</small></div>
+      </div>
+
+      <div class="card" style="background:var(--teal);color:var(--cream);border:none">
+        <h3 style="color:var(--cream)">¿Necesitas otra cosa?</h3>
+        <p style="color:rgba(245,241,232,.78)">Cuéntanos qué tienes en mente y te enviamos una cotización el mismo día.</p>
+        <a class="btn btn-lime" href="https://wa.me/573214092949?text=Hola%20Zyntha%2C%20necesito%20algo%20diferente">Pedir cotización</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Trabajos</div>
+      <h2>Mira cómo queda antes de pagar</h2>
+    </div>
+    <div class="works">
+
+      <a class="work" href="demo-menu.html">
+        <div class="tag">Ejemplo real</div>
+        <h3>Menú digital para restaurante</h3>
+        <p>Asadero El Llano: menú completo, precios y botón de pedido por WhatsApp desde el celular.</p>
+        <div class="go">Ver el menú →</div>
+      </a>
+
+      <a class="work" href="https://wa.me/573214092949?text=Hola%20Zyntha%2C%20quiero%20ver%20la%20plantilla%20de%20control%20en%20Sheets" style="background:var(--teal-dark)">
+        <div class="tag">Plantilla</div>
+        <h3>Control de fiados e inventario</h3>
+        <p>Hoja de cálculo con saldos automáticos, alertas y resumen diario. Te la mostramos por WhatsApp.</p>
+        <div class="go">Solicitar la plantilla →</div>
+      </a>
+
+      <a class="work" href="https://wa.me/573214092949?text=Hola%20Zyntha%2C%20quiero%20una%20muestra%20de%20mi%20negocio" style="background:#1A4E4F">
+        <div class="tag">Muestra gratis</div>
+        <h3>La tuya, sin costo</h3>
+        <p>Cuéntanos tu negocio y te enviamos una muestra real de cómo se vería. Sin compromiso.</p>
+        <div class="go">Pedir mi muestra →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Cómo funciona</div>
+      <h2>Tres pasos y ya estás en línea</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Hablamos por WhatsApp</h3>
+        <p>Nos cuentas qué negocio tienes y qué necesitas. Te mostramos una muestra gratis.</p>
+      </div>
+      <div class="step">
+        <h3>Anticipo del 50%</h3>
+        <p>Nequi o Bancolombia. Con el comprobante arrancamos el mismo día.</p>
+      </div>
+      <div class="step">
+        <h3>Recibes y publicas</h3>
+        <p>Entregamos en 24–48 h, con 2 rondas de ajustes incluidas. Lo publicamos y queda andando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta">
+    <h2>Empieza hoy y mañana tienes tu página</h2>
+    <p>Escríbenos por WhatsApp y te enviamos una muestra gratis de tu negocio, sin compromiso.</p>
+    <a class="btn btn-lime" href="https://wa.me/573214092949?text=Hola%20Zyntha%2C%20quiero%20mi%20muestra%20gratis">Escribir al 321 409 2949</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div><strong>Zyntha</strong> · Páginas web y menús digitales · Villavicencio, Meta</div>
+    <div>
+      <a href="https://instagram.com/zyntha.studio">Instagram</a> ·
+      <a href="https://wa.me/573214092949">WhatsApp</a> ·
+      <a href="mailto:zyntha.digital@gmail.com">Correo</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
