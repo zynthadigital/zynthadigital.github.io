@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo digital — ejemplo | Zyntha</title>
+<meta name="description" content="Ejemplo de catálogo digital de productos con precios y pedido directo por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231E3A8A'/><text x='50' y='72' font-size='52' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'>C</text></svg>">
+<style>
+  :root{--blue:#1E3A8A;--blue-dark:#152A63;--bg:#F6F7FB;--ink:#171C2B;--muted:#5C6579;--line:rgba(23,28,43,.10);--gold:#D4A017}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 16px}
+  a{text-decoration:none;color:inherit}
+  .demo-bar{background:var(--ink);color:#fff;font-size:11.5px;text-align:center;padding:7px 12px}
+  .demo-bar a{color:#A9C1FF;font-weight:700}
+
+  header{padding:30px 0 22px;text-align:center;border-bottom:1px solid var(--line)}
+  .badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);border:1.5px solid var(--blue);padding:5px 12px;border-radius:99px;margin-bottom:14px}
+  h1{font-size:clamp(1.6rem,5vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+  .sub{font-size:13.5px;color:var(--muted);margin-top:8px}
+
+  nav{position:sticky;top:0;background:rgba(246,247,251,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+  .cats{display:flex;gap:8px;overflow-x:auto;padding:11px 16px;max-width:900px;margin:0 auto;scrollbar-width:none}
+  .cats::-webkit-scrollbar{display:none}
+  .cats span{white-space:nowrap;font-size:12.5px;font-weight:700;color:var(--muted);background:rgba(30,58,138,.08);padding:7px 14px;border-radius:99px}
+  .cats span.on{background:var(--blue);color:#fff}
+
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));padding:22px 0 10px}
+  .prod{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+  .prod:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(23,28,43,.09)}
+  .thumb{height:96px;display:grid;place-items:center;font-size:34px;background:linear-gradient(150deg,#E8EEFF,#D7E2FF)}
+  .pin{padding:12px 13px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .pin h3{font-size:13.5px;font-weight:800;letter-spacing:-.01em;line-height:1.25}
+  .pin .pres{font-size:11.5px;color:var(--muted)}
+  .pin .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:6px}
+  .pin .pr{font-size:15px;font-weight:800;letter-spacing:-.02em}
+  .pin .pr small{display:block;font-size:10px;font-weight:600;color:var(--muted)}
+  .ask{background:var(--blue);color:#fff;font-size:11.5px;font-weight:800;padding:8px 12px;border-radius:8px}
+
+  .info{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:18px 0;font-size:13px;color:#46506B}
+  .info b{color:var(--ink)}
+  .info ul{margin:10px 0 0 18px}
+  .info li{margin-bottom:5px}
+
+  .cta{background:var(--blue-dark);color:#fff;border-radius:14px;padding:30px 22px;text-align:center;margin:22px 0}
+  .cta h2{font-size:1.15rem;margin-bottom:8px}
+  .cta p{font-size:13.5px;color:rgba(255,255,255,.8);max-width:40ch;margin:0 auto 18px}
+  .cta a{display:inline-block;background:#fff;color:var(--blue-dark);font-weight:800;font-size:13.5px;padding:12px 20px;border-radius:9px}
+
+  footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:12px;color:var(--muted);text-align:center}
+  footer a{color:var(--blue);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">Ejemplo de catálogo digital creado por <a href="index.html">Zyntha</a> · precios ficticios</div>
+
+<header class="wrap">
+  <div class="badge">Catálogo</div>
+  <h1>Distribuidora El Progreso</h1>
+  <p class="sub">Productos de aseo y papelería · Villavicencio · Pide por WhatsApp</p>
+</header>
+
+<nav>
+  <div class="cats">
+    <span class="on">Todo</span>
+    <span>Aseo</span>
+    <span>Papelería</span>
+    <span>Bebidas</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="grid">
+
+    <div class="prod">
+      <div class="thumb">🧴</div>
+      <div class="pin">
+        <h3>Detergente en polvo 1 kg</h3>
+        <div class="pres">Rinde 40 lavadas</div>
+        <div class="row"><div class="pr">$9.800<small>unidad</small></div><a class="ask" href="https://wa.me/573214092949?text=Hola%2C%20quiero%20pedir%20Detergente%20en%20polvo%201%20kg">Pedir</a></div>
+      </div>
+    </div>
+
+    <div class="prod">
+      <div class="thumb">🧻</div>
+      <div class="pin">
+        <h3>Papel higiénico x12</h3>
+        <div class="pres">Doble hoja, paquete familiar</div>
+        <div class="row"><div class="pr">$16.500<small>paquete</small></div><a class="ask" href="https://wa.me/573214092949?text=Hola%2C%20quiero%20pedir%20Papel%20higi%C3%A9nico%20x12">Pedir</a></div>
+      </div>
+    </div>
+
+    <div class="prod">
+      <div class="thumb">🧼</div>
+      <div class="pin">
+        <h3>Jabón en barra x3</h3>
+        <div class="pres">Aroma limón</div>
+        <div class="row"><div class="pr">$7.200<small>paquete</small></div><a class="ask" href="https://wa.me/573214092949?text=Hola%2C%20quiero%20pedir%20Jab%C3%B3n%20en%20barra%20x3">Pedir</a></div>
+      </div>
+    </div>
+
+    <div class="prod">
+      <div class="thumb">✏️</div>
+      <div class="pin">
+        <h3>Lápices x12</h3>
+        <div class="pres">Mina negra HB</div>
+        <div class="row"><div class="pr">$5.900<small>caja</small></div><a class="ask" href="https://wa.me/573214092949?text=Hola%2C%20quiero%20pedir%20L%C3%A1pices%20x12">Pedir</a></div>
+      </div>
+    </div>
+
+    <div class="prod">
+      <div class="thumb">📒</div>
+      <div class="pin">
+        <h3>Cuaderno 100 hojas</h3>
+        <div class="pres">Cosido, tapa dura</div>
+        <div class="row"><div class="pr">$6.400<small>unidad</small></div><a class="ask" href="https://wa.me/573214092949?text=Hola%2C%20quiero%20pedir%20Cuaderno%20100%20hojas">Pedir</a></div>
+      </div>
+    </div>
+
+    <div class="prod">
+      <div class="thumb">🥤</div>
+      <div class="pin">
+        <h3>Gaseosa 1.5 L</h3>
+        <div class="pres">Bien fría</div>
+        <div class="row"><div class="pr">$6.800<small>unidad</small></div><a class="ask" href="https://wa.me/573214092949?text=Hola%2C%20quiero%20pedir%20Gaseosa%201.5L">Pedir</a></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info">
+    <b>Lo que ve el cliente:</b>
+    <ul>
+      <li>Todos tus productos con foto, presentación y precio en un solo link.</li>
+      <li>Cada producto tiene su propio botón: te llega el mensaje con el nombre exacto.</li>
+      <li>Funciona en el celular, sin descargar app y sin que el cliente tenga que registrarse.</li>
+      <li>Sirve igual para enviar por WhatsApp, poner en el estado o imprimir con código QR.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <h2>¿Tus productos están regados en mil fotos?</h2>
+    <p>Te armamos el catálogo con tus productos, precios y botón de pedido. Listo en 48 horas.</p>
+    <a href="https://wa.me/573214092949?text=Hola%20Zyntha%2C%20quiero%20un%20cat%C3%A1logo%20digital%20para%20mi%20negocio">Pedir mi catálogo — $150.000</a>
+  </div>
+
+</div>
+
+<footer>
+  Distribuidora El Progreso es un nombre ficticio, creado como ejemplo.<br>
+  Catálogo hecho por <a href="index.html">Zyntha</a> — Villavicencio, Meta.
+</footer>
+
+</body>
+</html>
