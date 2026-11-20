@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Control de fiados e inventario — ejemplo | Zyntha</title>
 <meta name="description" content="Ejemplo de plantilla de control de fiados para tienda: saldos automáticos, abonos y alertas de cartera.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:site_name" content="Zyntha">
+<meta property="og:url" content="https://zynthadigital.github.io/demo-fiados.html">
+<meta property="og:title" content="Control de fiados e inventario — ejemplo | Zyntha">
+<meta property="og:description" content="Ejemplo de plantilla con saldos automáticos, abonos y alertas de cartera. Hecha por Zyntha.">
+<meta property="og:image" content="https://zynthadigital.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230E7B5F'/><text x='50' y='72' font-size='56' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'>X</text></svg>">
 <style>
   :root{--green:#0E7B5F;--green-dark:#0A5C46;--bg:#F3F6F4;--ink:#16241F;--muted:#5E7069;--line:rgba(22,36,31,.12);--red:#C0392B;--amber:#B7791F}
@@ -80,10 +88,10 @@
   </div>
 
   <div class="kpis">
-    <div class="kpi bad"><span>Por cobrar</span><b>$412.500</b><small>8 clientes con saldo</small></div>
+    <div class="kpi bad"><span>Por cobrar</span><b>$283.000</b><small>6 clientes con saldo</small></div>
     <div class="kpi"><span>Cobrado este mes</span><b>$685.000</b><small>23 abonos registrados</small></div>
     <div class="kpi"><span>Vencidos</span><b style="color:var(--red)">3</b><small>más de 15 días</small></div>
-    <div class="kpi"><span>Fiado promedio</span><b>$34.400</b><small>por cliente activo</small></div>
+    <div class="kpi"><span>Fiado promedio</span><b>$47.166</b><small>por cliente con saldo</small></div>
   </div>
 
   <div class="note">
@@ -91,7 +99,7 @@
   </div>
 
   <div class="sheet">
-    <div class="sheet-head"><strong>Hoja 1 · Fiados</strong><span>16 registros activos</span></div>
+    <div class="sheet-head"><strong>Hoja 1 · Fiados</strong><span>9 registros · datos de ejemplo</span></div>
     <div class="scroll">
       <table>
         <thead>
@@ -115,7 +123,6 @@
   </div>
 
   <div class="sheet">
-    <img alt="" style="display:none">
     <div class="sheet-head" style="background:#0A5C46"><strong>Hoja 2 · Inventario</strong><span>productos con stock bajo en rojo</span></div>
     <div class="scroll">
       <table>
